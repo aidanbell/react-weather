@@ -1,3 +1,19 @@
 .wi {
   font-size: 5em;
 }
+
+.current-weather {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+}
+
+.left, .right {
+  margin: 4vmin;
+}
+
+.right {
+  text-align: right;
+}

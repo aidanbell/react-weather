@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>weather</h1>
-        <div className="current-weather">
+        <div className="current">
           <Weather
             currentWeather={this.state.weatherData}
             icon={this.state.icon}
