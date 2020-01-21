@@ -1,4 +1,4 @@
-export const weatherIcons = {
+const weatherIcons = {
   "200": {
     "label": "thunderstorm with light rain",
     "icon": "storm-showers"
@@ -364,4 +364,18 @@ export const weatherIcons = {
     "label": "hurricane",
     "icon": "cloudy-gusts"
   }
+}
+
+export function getIcon(weatherData) {
+  let prefix = 'wi wi-';
+  let code = weatherData.weather[0].id;
+  let icon = weatherIcons[code].icon;
+
+  if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
+    icon = 'day-' + icon;
+  }
+
+  // Finally tack on the prefix.
+  icon = prefix + icon;
+  return icon;
 }
