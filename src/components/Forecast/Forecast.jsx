@@ -61,7 +61,13 @@ class Forecast extends Component {
   render() {
     return(
       <div className="forecast">
-
+        {this.state.days ?
+          this.state.days.map((d, index) => {
+            return(<ForecastCard data={d}/> )
+          })
+          :
+          <h1>loading</h1>
+        }
       </div>
     )
   }

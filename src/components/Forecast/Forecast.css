@@ -1,0 +1,7 @@
+.forecast {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  margin: auto;
+}
