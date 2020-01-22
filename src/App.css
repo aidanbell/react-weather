@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  box-sizing: border-box;
 }
 
 .App-header {
@@ -26,4 +16,9 @@
 
 div {
   border: 1px solid gray;
+}
+
+.wi {
+  font-size: 5em;
+  padding-top: 5vmin;
 }

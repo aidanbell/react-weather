@@ -366,13 +366,14 @@ const weatherIcons = {
   }
 }
 
-export function getIcon(weatherData) {
+// 200 - 299:
+
+export function getIcon(code, time) {
   let prefix = 'wi wi-';
-  let code = weatherData.weather[0].id;
   let icon = weatherIcons[code].icon;
 
   if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-    icon = 'day-' + icon;
+    icon = time + '-' + icon;
   }
 
   // Finally tack on the prefix.

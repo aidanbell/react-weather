@@ -1,5 +1,51 @@
-.forecast-card {
+.card-container {
+  position: relative;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
   width: 20%;
-  height: 40vmin;
-  margin: 5vmin;
+  height: 50vmin;
+  perspective: 1000px;
+}
+
+.card-container.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card-container.flipped .back {
+  transform: rotateY(0deg);
+}
+
+.front,
+.back {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: -webkit-transform ease 400ms;
+  transition: transform ease 400ms;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(-180deg);
+  display: flex;
+  flex-direction: row;
+}
+
+.report-card {
+  width: 9vmin;
+  font-size: 0.8em;
+}
+
+.report-card > .wi {
+  padding-top: 0.5vmin;
+  font-size: 2em;
 }

@@ -33,7 +33,6 @@ class Forecast extends Component {
       });
       console.log('just set hours');
     }
-    console.log(this.state.indivHrs)
     if (!this.state.days && this.state.indivHrs) {
       this.splitDays(this.state.indivHrs);
     }
@@ -63,7 +62,7 @@ class Forecast extends Component {
       <div className="forecast">
         {this.state.days ?
           this.state.days.map((d, index) => {
-            return(<ForecastCard data={d}/> )
+            return(<ForecastCard data={d} units={this.props.units}/> )
           })
           :
           <h1>loading</h1>

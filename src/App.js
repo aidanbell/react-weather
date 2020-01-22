@@ -23,7 +23,7 @@ class App extends Component {
     const {lat, lng} = await getCurrentLatLng();
     const weatherData = await getCurWeather(lat, lng, this.state.units);
     const forecast = await getForecast(lat, lng, this.state.units);
-    const icon = await getIcon(weatherData);
+    const icon = await getIcon(weatherData.weather[0].id, 'day');
     this.setState({
       lat,
       lng,
