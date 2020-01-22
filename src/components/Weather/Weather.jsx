@@ -15,7 +15,7 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    console.log('mounted')
+
   }
 
   componentDidUpdate() {
@@ -27,11 +27,6 @@ class Weather extends Component {
   }
 
   render() {
-    let d = new Date(0)
-    if (this.props.currentWeather) {
-      d.setUTCSeconds(this.props.currentWeather.dt)
-      console.log(d)
-    }
     return(
       <div className="display">
         <div className="current-weather">
@@ -43,11 +38,9 @@ class Weather extends Component {
           </div>
           {this.props.currentWeather &&
             <div className="right">
-              <h1>{this.props.currentWeather.main.temp}</h1>
-              <h2>Feels Like {this.props.currentWeather.main.feels_like}</h2>
-              <p>
-                {this.d}
-                </p>
+              <h1>{this.props.currentWeather.main.temp} °{this.props.units === 'metric' ? 'C' : 'F'}</h1>
+              <h2>Feels Like {this.props.currentWeather.main.feels_like} °{this.props.units === 'metric' ? 'C' : 'F'}</h2>
+
             </div>
           }
         </div>

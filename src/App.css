@@ -24,7 +24,6 @@
   color: white;
 }
 
-.current {
-  text-align: center;
-  padding: auto;
+div {
+  border: 1px solid gray;
 }
