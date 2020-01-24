@@ -92,7 +92,6 @@ class ForecastCard extends Component {
       avgs.feels_like += t.main.feels_like;
       avgs.humidity += t.main.humidity;
       avgs.pressure += t.main.pressure;
-      console.log(avgs)
     })
     avgs.temp = Math.round((avgs.temp / 7) * 10) / 10;                  // This is also sloppy
     avgs.feels_like = Math.round((avgs.feels_like / 7) * 10) / 10;
