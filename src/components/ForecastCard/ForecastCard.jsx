@@ -21,9 +21,9 @@ class CardBack extends Component {
     let reports = this.props.data.map(h => {
       let time = parseInt(h.dt_txt.slice(11,13));
       if (time < 6 || time > 19) {
-        time = 'day'
-      } else {
         time = 'night'
+      } else {
+        time = 'day'
       }
       return (
         <div className="report-card">
@@ -59,7 +59,7 @@ class ForecastCard extends Component {
   }
 
   async componentDidMount() {
-    const icon = await getIcon(this.props.data[3].weather[0].id, 'day')
+    const icon = await getIcon(this.props.data[1].weather[0].id, 'day')
     const avgs = this.getAvgTemp();
     this.setState({
       avgs: avgs,

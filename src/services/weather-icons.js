@@ -375,6 +375,9 @@ export function getIcon(code, time) {
   if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
     icon = time + '-' + icon;
   }
+  if (code === 800 && time === 'night') {
+    icon = time + '-clear'
+  }
 
   // Finally tack on the prefix.
   icon = prefix + icon;
