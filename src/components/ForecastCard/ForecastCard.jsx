@@ -8,6 +8,7 @@ class CardFront extends Component {
   render() {
     return(
       <div className="front">
+        <h2>{this.props.date}</h2>
         <i className={this.props.icon}></i>
         <h3>{this.props.avgs && this.props.avgs.temp} °{this.props.units === 'metric' ? 'C' : 'F'}</h3>
       </div>
@@ -27,8 +28,9 @@ class CardBack extends Component {
       }
       return (
         <div className="report-card">
-          <p>{h.main.temp} °{this.props.units === 'metric' ? 'C' : 'F'}</p>
-          <p>({h.main.feels_like} °{this.props.units === 'metric' ? 'C' : 'F'})</p>
+          <p>{h.dt_txt.slice(11,16)}</p>
+          <p>{Math.round(h.main.temp * 10) /10} °{this.props.units === 'metric' ? 'C' : 'F'}</p>
+          <p>({Math.round(h.main.feels_like * 10) /10} °{this.props.units === 'metric' ? 'C' : 'F'})</p>
           <i className={getIcon(h.weather[0].id, time)}></i>
         </div>
       )
@@ -70,6 +72,7 @@ class ForecastCard extends Component {
 
   componentDidUpdate() {
     this.getAvgTemp();
+    this.getDateString();
   }
 
   // TODO:
@@ -98,12 +101,22 @@ class ForecastCard extends Component {
     return avgs;
   }
 
+  getDateString = () => {
+    if (this.state.date) return;
+    let date = new Date(0);
+    date.setUTCSeconds(this.props.data[0].dt)
+    date = date.toString().slice(0,10);
+    this.setState({
+      date: date
+    })
+  }
+
 
   render() {
     return(
       <div onMouseEnter={this.flip} onMouseLeave={this.flip} className={"card-container" + (this.state.flipped ? " flipped" : "")}>
-        <CardFront avgs={this.state.avgs} icon={this.state.icon} units={this.props.units}/>
-        <CardBack data={this.props.data}/>
+        <CardFront avgs={this.state.avgs} icon={this.state.icon} units={this.props.units} date={this.state.date}/>
+        <CardBack data={this.props.data} units={this.props.units}/>
       </div>
     )
   }
