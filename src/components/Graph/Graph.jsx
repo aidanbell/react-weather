@@ -13,7 +13,7 @@ class Graph extends Component {
   getTemps() {
     let temps = []
     this.props.data.map((d, idx) => {
-      temps.push({x: idx, y: d.main.temp})
+      temps.push({x: d.dt_txt.slice(11,16), y: d.main.temp})
     })
     return temps;
   }
@@ -21,7 +21,7 @@ class Graph extends Component {
   getFeels() {
     let feels = []
     this.props.data.map((d, idx) => {
-      feels.push({x: idx, y: d.main.feels_like})
+      feels.push({x: d.dt_txt.slice(11,16), y: d.main.feels_like})
     })
     return feels;
   }
@@ -31,6 +31,7 @@ class Graph extends Component {
       <V.VictoryChart>
         <V.VictoryGroup
           x=''
+          maxDomain={{y: 10}}
           style={{
             data: { strokeWidth: 3, fillOpacity: 0.4 }
           }}
