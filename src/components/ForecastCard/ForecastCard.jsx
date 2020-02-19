@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getIcon } from '../../services/weather-icons';
+import Graph from '../Graph/Graph.jsx'
 
 import 'weather-icons/css/weather-icons.css';
 import './ForecastCard.css';
@@ -38,7 +39,12 @@ class CardBack extends Component {
 
     return(
       <div className='back'>
-        {reports}
+        <div className='back-days'>
+          {reports}
+        </div>
+        <div className="graph">
+          <Graph data={this.props.data}/>
+        </div>
       </div>
     )
   }
@@ -61,7 +67,7 @@ class ForecastCard extends Component {
   }
 
   async componentDidMount() {
-    const icon = await getIcon(this.props.data[1].weather[0].id, 'day')
+    const icon = await getIcon(this.props.data[0].weather[0].id, 'day')
     const avgs = this.getAvgTemp();
     this.setState({
       avgs: avgs,

@@ -36,6 +36,9 @@
 
 .back {
   transform: rotateY(-180deg);
+}
+
+.back-days {
   display: flex;
   flex-direction: row;
 }
@@ -48,4 +51,6 @@
 .report-card > .wi {
   padding-top: 0.5vmin;
   font-size: 2em;
+  margin-top: auto;
+  margin-bottom: 0;
 }
