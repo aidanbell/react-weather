@@ -31,7 +31,7 @@ class Graph extends Component {
       <V.VictoryChart>
         <V.VictoryGroup
           x=''
-          maxDomain={{y: 10}}
+          maxDomain={{y: 30}}
           style={{
             data: { strokeWidth: 3, fillOpacity: 0.4 }
           }}
